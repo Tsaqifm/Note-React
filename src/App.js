@@ -59,25 +59,26 @@ function App() {
     } else {
       return setTodos([]);
     }
+
     // to set time interval in 1 second
-    // const timer = setInterval(() => {
-    //   setDate(new Date());
-    // }, 1000);
-    // return () => {
-    //   clearInterval(timer);
-    // };
+    const timer = setInterval(() => {
+      setDate(new Date());
+    }, 1000);
+    return () => {
+      clearInterval(timer);
+    };
   }, []);
 
   return (
     <main className="h-screen w-screen bg-slate-100">
-      <div className=" mx-auto h-48 bg-cover bg-center brightness-50 " style={{ backgroundImage: `url(${images})` }}></div>
-      <div className="container relative -top-[90px] flex flex-col items-start justify-center ">
+      <div className=" mx-auto h-48 bg-cover bg-center brightness-50 lg:h-64 " style={{ backgroundImage: `url(${images})` }}></div>
+      <div className="container relative -top-[90px] flex flex-col items-start justify-center lg:-top-[105px] ">
         <div className="  text-white">
-          <h1 className="text-xl font-bold">
+          <h1 className="text-xl font-bold md:text-2xl lg:text-4xl">
             {wish}
             {name}👋
           </h1>
-          <time className="text-[10px] font-normal">
+          <time className="text-[10px] font-normal md:text-xs lg:text-base">
             {date}
             {time}
           </time>
@@ -86,7 +87,7 @@ function App() {
           <div className="mt-2 rounded-lg bg-white p-4 shadow-md ">
             <form onSubmit={addTodoHandler}>
               <input
-                className=" rounded-md px-2 py-1 text-sm shadow-inner drop-shadow-md focus:outline-green-500"
+                className=" rounded-md px-2 py-1 text-sm shadow-inner drop-shadow-md focus:outline-green-500 md:text-base lg:text-lg"
                 type="text"
                 value={activity}
                 placeholder="Add Your Activities"
@@ -94,7 +95,7 @@ function App() {
                   setActivity(event.target.value);
                 }}
               />
-              <button className=" ml-4 rounded-md bg-green-500 py-1 px-4 text-sm text-white" type="submit">
+              <button className=" ml-4 rounded-md bg-green-500 py-1 px-4 text-sm text-white md:text-base lg:text-lg" type="submit">
                 Add
               </button>
             </form>
@@ -103,11 +104,11 @@ function App() {
       </div>
       <div className="container -mt-14">
         <div className="container rounded-md bg-white p-4 shadow-md">
-          <h1 className="text-lg font-bold">Notes📝</h1>
-          <ul className="mt-4 grid grid-cols-2 gap-2">
+          <h1 className="text-lg font-bold md:text-xl lg:text-2xl">Notes📝</h1>
+          <ul className="mt-4 grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-4">
             {todos.map((todo) => {
               return (
-                <li className=" rounded-md border border-slate-300 px-2  text-xs line-clamp-4" key={todo}>
+                <li className=" rounded-md border border-slate-300 px-2 text-xs line-clamp-4 md:text-sm lg:text-base" key={todo}>
                   {todo}
                 </li>
               );
