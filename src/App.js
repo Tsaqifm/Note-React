@@ -154,7 +154,7 @@ function App() {
           </time>
         </div>
         <div className="flex w-full flex-nowrap justify-center ">
-          <div className="mt-2 rounded-lg bg-white p-4 shadow-md  ">
+          <div className="mt-2 rounded-lg bg-white p-4 shadow-md  " >
             <form onSubmit={saveTodoHandler}>
               {massage && <h1 className="mb-2 text-red-600">{massage}</h1>}
               <div className="flex flex-col items-end">
@@ -192,8 +192,8 @@ function App() {
               {todos.map((todo) => {
                 return (
                   <li key={todo.id} className="flex">
-                    <input className=" mr-2 align-middle" type="checkbox" checked={todo.done} onChange={doneTodoHandler.bind(this, todo)} />
-                    <div className={` ${todo.done && "text-slate-400"} truncate rounded-md border border-slate-300 px-1 py-1 text-xs md:text-sm lg:text-base`}>{todo.activity}</div>
+                    <input className="mr-2 align-middle" type="checkbox" checked={todo.done} onChange={doneTodoHandler.bind(this, todo)} />
+                    <div className={`${todo.done && "text-slate-400"} truncate rounded-md border border-slate-300 px-1 py-1 text-xs md:text-sm lg:text-base`}>{todo.activity}</div>
                     <div className="ml-2 flex gap-2">
                       <button onClick={editTodoHandler.bind(this, todo)}>✏</button>
                       <button onClick={removeTodoHandler.bind(this, todo.id)}>❌</button>
